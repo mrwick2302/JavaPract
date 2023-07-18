@@ -1,0 +1,29 @@
+//Demonstrate the use of JSP
+//JSP file
+<html>
+<head>
+<title>userInfo</title>
+</head>
+<body>
+<h2>
+<% String username=request.getParameter("uname");
+   String password=request.getParameter("pass");
+   out.print("Name:"+username+" Password:"+password);
+ %>
+ </h2>
+</body>
+</html> 
+
+//HTML File
+<html>
+<head>
+<title>Enter username and Password</title>
+</head>
+<body><br><br><br><br>
+<center><h2><form action="userInfo.jsp">
+Enter User Name: <input type="text" name="uname"/> <br><br>
+Enter Password: <input type="password" name="pass" /><br><br>
+<input type="submit" value="SUBMIT DETAILS"/>
+</form></h2></center>
+</body>
+</html> 
