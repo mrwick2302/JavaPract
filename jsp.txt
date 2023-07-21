@@ -27,3 +27,21 @@ Enter Password: <input type="password" name="pass" /><br><br>
 </form></h2></center>
 </body>
 </html> 
+
+
+
+test> show dbs
+test>db.Students.insertOne({ "stud_name": "Maya", "class": "TYBBA_CA", "percentage":80})
+test>db.Students.insertMany([{"stud_name": "Vedant", "class": "SYBBA_CA", "percentage":85},
+{ "stud_name": "Supriya", "class": "TYBBA_CA", "percentage":56},
+{"stud_name": "Smita", "class": "TYBBA_CA", "percentage":90}])
+Test> db.Students.find()
+Test> db.Students.find().pretty()
+Test> db.Students.find({"class":{$eq:"TYBBA_CA"}});
+Test> db.Students.find({"class":{$ne:"TYBBA_CA"}});
+Test>db.Students.find({"percentage":{$in:[80,90]}});
+Test>db.Students.find({"percentage":{$gt:80}});
+Test>db.Students.find.count();
+Test>db.Students.find.limit(3);
+Test>db.Students.updateOne({"stud_name":"Maya"},{$set:{percentage:90}});
+Test>db.dropDatabase();
