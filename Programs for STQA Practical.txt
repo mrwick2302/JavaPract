@@ -1,0 +1,91 @@
+﻿Programs for STQA Practical’s
+Write down a testing program for the testing of a open source website and to search a keyword on the website and display its output:
+
+
+package sampleapp;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Javatpoint {
+   public static void main(String[] args)
+   {
+       System.setProperty("webdriver.chrome.driver","C:\\Users\\exam\\Downloads\\chromedriver-win64 (3)\\chromedriver-win64\\chromedriver.exe");
+       WebDriver driver =new ChromeDriver();
+       driver.navigate().to("https://www.javatpoint.com/");
+       driver.manage().window().maximize();
+       JavascriptExecutor js = (JavascriptExecutor)driver;
+       js.executeScript("scrollBy(0,5000)");
+       driver.findElement(By.linkText("Java")).click();
+
+   }
+}
+
+
+
+Write program for launching a website and it should be redirected to log in page and should be successfully logged in with valid input of credentials :
+
+
+package sampleapp;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+public class Test2
+{
+   WebDriver driver;
+   public void driverseting()
+   {
+       driver=new ChromeDriver();
+       driver.manage().window().maximize();
+       try
+       {
+         Thread.sleep(1000);  
+       } catch (InterruptedException e){
+           e.printStackTrace();
+       }
+   }
+        public void navigate()
+        {
+           driver.get("https://www.linkedin.com/authwall?trk=qf&original_referer=https://www.google.com/&sessionRedirect=https%3A%2F%2Fin.linkedin.com%2F");
+           try {
+               Thread.sleep(1000);
+           } catch (InterruptedException e){
+               e.printStackTrace();
+           }
+           driver.findElement(By.name("email-or-phone")).sendKeys("mehraj@gmail.com");
+           driver.findElement(By.name("password")).sendKeys("123456mik");
+
+           driver.findElement(By.id("join-form-submit")).click();
+        }
+   public static void main(String[] args)
+   {
+      Test2 obj=new Test2();
+      obj.driverseting();
+      obj.navigate();
+
+   }
+}
+
+
+
+
+
+Launching of browser and loading a particular website:
+
+
+package sampleapp;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class one
+{
+   public static void main(String[] args)
+   {
+       System.setProperty("webdriver.chrome.driver", "C:\\Users\\exam\\Downloads\\chromedriver-win64 (3)\\chromedriver-win64\\chromedriver.exe");
+       WebDriver driver =new ChromeDriver();
+       driver.get("https://www.cricbuzz.com/");
+   }
+}
